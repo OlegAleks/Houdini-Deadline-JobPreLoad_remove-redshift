@@ -6,9 +6,9 @@ from subprocess import Popen, PIPE
 def __main__(deadlinePlugin):
 	job = deadlinePlugin.GetJob()
 	slaveName = deadlinePlugin.GetSlaveName()
-	cpu_farm = ['RENDER9', 'RENDER10', 'RENDER11', 'RENDER12', 'RENDER13', 'RENDER14', 'RENDER15', 'RENDER16', 'RENDER17', 'RENDER18', 'RENDER19', 'RENDER20', 'RENDER21', 'RENDER22', 'RENDER23', 'RENDER24', 'RENDER25', 'RENDER26', 'RENDER27', 'RENDER28', 'RENDER29', 'RENDER30', 'RENDER31', 'RENDER32']
+	cpu_farm = ['RENDER9', 'RENDER10', 'RENDER11', 'RENDER12', 'RENDER13', 'RENDER14', 'RENDER15']
 	if slaveName in cpu_farm:
-		deadlinePlugin.LogInfo("************EXECUTE UBERSCRIPT***********")
+		deadlinePlugin.LogInfo("************START UBERSCRIPT***********")
 		hip = deadlinePlugin.GetDataFilename()
 		deadlinePlugin.LogInfo("file name: %s" % hip)
 		houdiniExeList = deadlinePlugin.GetConfigEntry("Houdini16_5_Hython_Executable")
@@ -31,4 +31,4 @@ def __main__(deadlinePlugin):
 		deadlinePlugin.LogInfo("subprocess errors: %s" % err)
 		deadlinePlugin.LogInfo("************FINISH UBERSCRIPT***********")
 	else:
-		deadlinePlugin.LogInfo("************GPU IS HERE***********")
+		deadlinePlugin.LogInfo("************SKIP UBERSCRIPT***********")
